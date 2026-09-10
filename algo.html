@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbuster | Rendimiento y Vanguardia</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            500: '#3b82f6', // Azul deportivo
+                            900: '#0f172a', // Fondo oscuro
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        /* Importar fuente moderna */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap');
+        
+        /* Utilidad de Glassmorfismo innovadora */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Imagen de fondo genérica de un coche (puedes cambiar la URL) */
+        .hero-bg {
+            background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 1)), url('https://images.unsplash.com/photo-1614200187524-dc4b892acf16?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Efecto Parallax simple */
+        }
+    </style>
+</head>
+<body class="bg-brand-900 text-white font-sans antialiased overflow-x-hidden">
+
+    <nav x-data="{ isOpen: false, scrolled: false }" 
+         @scroll.window="scrolled = (window.pageYOffset > 20)"
+         :class="{'glass shadow-lg': scrolled, 'bg-transparent': !scrolled}"
+         class="fixed w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 font-black text-2xl tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+                    Carbuster
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#modelos" class="hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition">Modelos</a>
+                        <a href="#tecnologia" class="hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition">Tecnología</a>
+                        <a href="#contacto" class="bg-blue-600 hover:bg-blue-500 px-5 py-2 rounded-full text-sm font-bold transition shadow-[0_0_15px_rgba(59,130,246,0.5)]">Reservar Prueba</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero-bg relative h-screen flex items-center justify-center">
+            <div class="relative z-10 text-center px-4 max-w-5xl mx-auto mt-16">
+                <h1 class="text-5xl md:text-7xl font-black tracking-tight mb-6 animate-fade-in-up">
+                    El futuro de la <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Aerodinámica</span>
+                </h1>
+                <p class="mt-4 text-xl text-gray-300 max-w-2xl mx-auto mb-10 font-light">
+                    Ingeniería de precisión. Aceleración instantánea. Diseñado para quienes exigen el control total en cada curva.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button class="glass px-8 py-4 rounded-full font-bold hover:bg-white/10 transition flex items-center justify-center gap-2">
+                        Ver Especificaciones
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="tecnologia" class="py-24 relative">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition duration-300">
+                        <div class="text-blue-400 mb-4">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">0 a 100 en 2.4s</h3>
+                        <p class="text-gray-400 text-sm">Motores eléctricos duales que entregan un torque brutal desde el milisegundo cero.</p>
+                    </div>
+                    
+                    <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition duration-300">
+                        <div class="text-blue-400 mb-4">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Chasis de Carbono</h3>
+                        <p class="text-gray-400 text-sm">Seguridad estructural de grado aeroespacial que reduce el peso y maximiza la rigidez.</p>
+                    </div>
+
+                    <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition duration-300">
+                        <div class="text-blue-400 mb-4">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Autonomía de 800km</h3>
+                        <p class="text-gray-400 text-sm">Baterías de estado sólido gestionadas por IA predictiva para rutas de largo alcance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-white/10 py-8 mt-12 text-center text-gray-500 text-sm">
+        <p>&copy; 2026 Carbuster. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
